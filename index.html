@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Streaming Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #111;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .movie-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+        .movie-item {
+            background-color: #333;
+            margin: 10px;
+            padding: 15px;
+            width: 200px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .movie-item:hover {
+            transform: scale(1.05);
+        }
+        .movie-item img {
+            width: 100%;
+            border-radius: 5px;
+            height: auto;
+        }
+        .movie-item h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .movie-item p {
+            font-size: 14px;
+            color: #bbb;
+        }
+        .movie-item button {
+            background-color: #5cba47;
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .movie-item button:hover {
+            background-color: #4a9c3a;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Stanley's Movie Stream</h1>
+</header>
+
+<div class="movie-list" id="movie-list">
+    <!-- Movies will be displayed here dynamically -->
+</div>
+
+<script>
+    // Function to fetch movies dynamically
+    async function fetchMovies() {
+        try {
+            const response = await fetch('/movies/movies.json');
+            const movies = await response.json();
+
+            const movieListContainer = document.getElementById('movie-list');
+            movieListContainer.innerHTML = "";  // Clear any previous content
+
+            movies.forEach(movie => {
+                const movieItem = document.createElement('div');
+                movieItem.classList.add('movie-item');
+
+                const movieImage = document.createElement('img');
+                movieImage.src = movie.image;
+                movieItem.appendChild(movieImage);
+
+                const movieTitle = document.createElement('h2');
+                movieTitle.textContent = movie.title;
+                movieItem.appendChild(movieTitle);
+
+                const movieDescription = document.createElement('p');
+                movieDescription.textContent = movie.description;
+                movieItem.appendChild(movieDescription);
+
+                const watchButton = document.createElement('button');
+                watchButton.textContent = 'Watch Now';
+                watchButton.onclick = () => window.location.href = movie.link;
+                movieItem.appendChild(watchButton);
+
+                movieListContainer.appendChild(movieItem);
+            });
+        } catch (error) {
+            console.error("Error fetching movie data:", error);
+            const movieListContainer = document.getElementById('movie-list');
+            movieListContainer.innerHTML = "<p>Sorry, we couldn't load the movies at the moment. Please try again later.</p>";
+        }
+    }
+
+    // Call the function to fetch and display movies
+    fetchMovies();
+</script>
+
+</body>
+</html>
