@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Stanley the Great",
+        "description": "An epic adventure about a small town's survival after a meteor strike.",
+        "image": "/movies/stanley_the_great.jpg",
+        "link": "/movies/stanley_the_great.mp4"
+    },
+    {
+        "title": "Stanley the Great and the Odyssey of Doom",
+        "description": "The journey continues as Stanley faces new challenges.",
+        "image": "/movies/stanley_odyssey.jpg",
+        "link": "/movies/stanley_odyssey.mp4"
+    },
+    {
+        "title": "Stanley the Great and the Tunnels of Terror",
+        "description": "Stanley and friends explore dangerous underground tunnels.",
+        "image": "/movies/stanley_tunnels.jpg",
+        "link": "/movies/stanley_tunnels.mp4"
+    },
+    {
+        "title": "Stanley the Great and the Tower of Portals",
+        "description": "A mysterious tower sparks a war between civilizations.",
+        "image": "/movies/stanley_tower.jpg",
+        "link": "/movies/stanley_tower.mp4"
+    },
+    {
+        "title": "Stanley the Great and the Portals of Time",
+        "description": "Stanley navigates alternate timelines to find his lost family.",
+        "image": "/movies/stanley_portals.jpg",
+        "link": "/movies/stanley_portals.mp4"
+    }
+]
